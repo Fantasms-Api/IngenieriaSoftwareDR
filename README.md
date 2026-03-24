@@ -1,7 +1,7 @@
 🌦️ Forecast Weather Project (FWP)
-Proyecto de Business Intelligence que analiza la relación entre condiciones climáticas en Canadá, ventas y costos logísticos, con el objetivo de identificar los mejores días para realizar envíos y optimizar decisiones comerciales.
 
-El sistema integra datos climáticos provenientes de una API meteorológica externa con datos históricos de ventas y transporte, generando KPIs y dashboards interactivos en herramientas BI.
+
+Proyecto de Business Intelligence que analiza la relación entre condiciones climáticas en Canadá, ventas y costos logísticos, con el objetivo de identificar los mejores días para realizar envíos y optimizar decisiones comerciales. El sistema integra datos climáticos provenientes de una API meteorológica externa con datos históricos de ventas y transporte, generando KPIs y dashboards interactivos en herramientas BI.
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -43,12 +43,11 @@ Dashboards (QlikView / Power BI)
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ⚙️ Tecnologías Utilizadas
-1.Power BI
-2.QlikView
-3.API REST (Weather API)
-4.JSON
-5.ETL Scripts
-6.Excel / Data Sources
+1.QlikView
+2.API REST (Weather API)
+3.JSON
+4.ETL Scripts
+5.Excel / Data Sources
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -80,10 +79,10 @@ Dashboards (QlikView / Power BI)
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 👥 Usuarios del Sistema
-Usuario	          Nivel técnico	     Uso
-Gerente Comercial	Medio	          Toma de decisiones estratégicas
-Analista Comercial	Alto	               Exploración de datos y reportes
-Administrador BI	Alto	               Mantenimiento del sistema
+Usuario	             Nivel técnico	     Uso
+Gerente Comercial	   Medio	             Toma de decisiones estratégicas
+Analista Comercial	 Alto	               Exploración de datos y reportes
+Administrador BI	   Alto	               Mantenimiento del sistema
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -108,7 +107,7 @@ Administrador BI	Alto	               Mantenimiento del sistema
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-📂 Estructura del Proyecto (ejemplo)
+📂 Estructura del Proyecto
 Forecast-Weather-Project
 │
 ├── data
@@ -147,51 +146,18 @@ Forecast-Weather-Project
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+📊 Pasos para correr proyecto:
+
+1.Configurar la API Key en el ETL
+2.Verificar que los datos estén en /data/sales/
+3.Ejecutar el ETL
+4.Abrir el dashboard en QlikView
+5.Actualizar los datos
+6.Analizar los resultados en los dashboards
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 👨‍💻 Autor
 Marcos Daniel Rojas Cuervo
 Politécnico Internacional – Sede Sur
 Proyecto académico de Business Intelligence y Análisis de Datos
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-📈 Diseño Dashboard
-
-┌──────────────────────────────────────────────────────────────────────┐
-│               DASHBOARD VENTAS DE CEMENTO Y CLIMA                    │
-└──────────────────────────────────────────────────────────────────────┘
-
-Filtros
-[ Fecha ▼ ]   [ Ciudad ▼ ]   [ Tipo de Cemento ▼ ]
-
-┌──────────────────┬──────────────────┬──────────────────┬──────────────────┐
-│  Ventas Totales  │ Toneladas Vend.  │ Temp Promedio    │ Días con Lluvia  │
-│   $2,540,000     │   1,240 Ton      │      18.4°C      │        12        │
-└──────────────────┴──────────────────┴──────────────────┴──────────────────┘
-
-
-┌──────────────────────────────────────┬─────────────────────────────────┐
-│                                      │                                 │
-│        Ventas de cemento por día     │         Lluvia vs Ventas        │
-│                                      │                                 │
-│    $                                 │  mm lluvia                      │
-│    │     ╭───╮                       │  █ █ █                           │
-│    │   ╭─╯   ╰─╮                     │  █ █ █       ─ ventas            │
-│    │ ╭─╯       ╰──╮                  │  █ █ █  ────                      │
-│    │╭╯             ╰╮                │                                 │
-│    └──────────────────── Fecha       │                Fecha            │
-│                                      │                                 │
-└──────────────────────────────────────┴─────────────────────────────────┘
-
-
-┌──────────────────────────────────────┬─────────────────────────────────┐
-│                                      │                                 │
-│         Ventas por Ciudad            │        Temperatura vs Ventas    │
-│                                      │                                 │
-│ Bogotá        █████████              │   Ventas $                      │
-│ Medellín      ███████                │        •                        │
-│ Cali          █████                  │      •   •                      │
-│ Barranquilla  ███                    │   •       •                     │
-│                                      │                                 │
-│                                      │  Temperatura →                  │
-│                                      │                                 │
-└──────────────────────────────────────┴─────────────────────────────────┘
