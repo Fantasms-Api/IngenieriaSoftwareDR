@@ -1,0 +1,93 @@
+-------------------------------------------------------------------------------------
+-- Observación: En la empresa si tendría algo de estas tablas por lo cuál acá creo un espejo de lo que debería tener en producción.
+
+-- Creación BD General
+CREATE DATABASE FORECAST;
+
+-- Creación Tabla Regiones:
+
+USE forecast;
+CREATE TABLE regiones (
+    id_region INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_region VARCHAR(100),
+    pais VARCHAR(50)
+);
+
+-------------------------------------------------------------------------------------
+-- Creación Tabla Ciudades:
+
+USE forecast;
+CREATE TABLE ciudades (
+    id_ciudad INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_ciudad VARCHAR(100),
+    id_region INT,
+    FOREIGN KEY (id_region) REFERENCES regiones(id_region)
+);
+
+-------------------------------------------------------------------------------------
+-- Creación Tabla Productos:
+
+USE forecast;
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100),
+    categoria VARCHAR(50)
+);
+
+-------------------------------------------------------------------------------------
+-- Creación Tabla Clima:
+
+USE forecast;
+CREATE TABLE clima (
+    id_clima INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE,
+    id_ciudad INT,
+    temperatura DECIMAL(5,2),
+    precipitacion DECIMAL(5,2),
+    condicion VARCHAR(50),
+    FOREIGN KEY (id_ciudad) REFERENCES ciudades(id_ciudad)
+);
+
+-------------------------------------------------------------------------------------
+-- Creación Tabla Ventas:
+
+USE forecast;
+CREATE TABLE ventas (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE,
+    id_ciudad INT,
+    id_producto INT,
+    ventas DECIMAL(10,2),
+    unidades INT,
+    FOREIGN KEY (id_ciudad) REFERENCES ciudades(id_ciudad),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-------------------------------------------------------------------------------------
+-- Ingreso de datos para cada una de las tablas
+
+USE forecast;
+INSERT INTO regiones (nombre_region, pais) VALUES
+('Ontario','Canada'),
+('Quebec','Canada'),
+('British Columbia','Canada');
+
+INSERT INTO ciudades (nombre_ciudad, id_region) VALUES
+('Toronto',1),
+('Montreal',2),
+('Vancouver',3);
+
+INSERT INTO productos (nombre_producto, categoria) VALUES
+('Electronics','Tecnologia'),
+('Clothing','Ropa'),
+('Furniture','Hogar');
+
+INSERT INTO clima (fecha, id_ciudad, temperatura, precipitacion, condicion) VALUES
+('2025-01-01',1,-5,10,'Snow'),
+('2025-01-01',2,-8,12,'Snow'),
+('2025-01-01',3,5,20,'Rain');
+
+INSERT INTO ventas (fecha, id_ciudad, id_producto, ventas, unidades) VALUES
+('2025-01-01',1,1,1200,5),
+('2025-01-01',2,2,800,10),
+('2025-01-01',3,3,1500,2);
